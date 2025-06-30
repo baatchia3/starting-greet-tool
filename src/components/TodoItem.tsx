@@ -12,7 +12,7 @@ interface TodoItemProps {
 
 const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
   return (
-    <div className="flex items-center gap-3 p-4 bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+    <div className="flex items-center gap-3 p-4 bg-white dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600 hover:shadow-md transition-shadow">
       <Checkbox
         checked={todo.completed}
         onCheckedChange={() => onToggle(todo.id)}
@@ -22,8 +22,8 @@ const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
       <span
         className={`flex-1 text-left ${
           todo.completed
-            ? "line-through text-gray-500"
-            : "text-gray-800"
+            ? "line-through text-gray-500 dark:text-gray-400"
+            : "text-gray-800 dark:text-gray-100"
         }`}
       >
         {todo.text}
@@ -33,7 +33,7 @@ const TodoItem = ({ todo, onToggle, onDelete }: TodoItemProps) => {
         variant="ghost"
         size="sm"
         onClick={() => onDelete(todo.id)}
-        className="text-red-500 hover:text-red-700 hover:bg-red-50"
+        className="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20"
       >
         <Trash2 className="h-4 w-4" />
       </Button>

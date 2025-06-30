@@ -41,12 +41,12 @@ const TodoApp = () => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+      <Card className="shadow-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
         <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-bold text-gray-800 mb-2">
+          <CardTitle className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
             My Tasks
           </CardTitle>
-          <p className="text-gray-600">
+          <p className="text-gray-600 dark:text-gray-300">
             {completedCount} of {totalCount} tasks completed
           </p>
         </CardHeader>
@@ -56,8 +56,8 @@ const TodoApp = () => {
           <div className="space-y-2">
             {todos.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg">No tasks yet!</p>
-                <p className="text-gray-400">Add your first task above</p>
+                <p className="text-gray-500 dark:text-gray-400 text-lg">No tasks yet!</p>
+                <p className="text-gray-400 dark:text-gray-500">Add your first task above</p>
               </div>
             ) : (
               todos.map(todo => (
