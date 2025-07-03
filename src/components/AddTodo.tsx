@@ -23,7 +23,7 @@ const AddTodo = ({ onAdd }: AddTodoProps) => {
     <form onSubmit={handleSubmit} className="flex gap-2">
       <Input
         type="text"
-        placeholder="Add a new task...haha "
+        placeholder="Add a new task "
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         className="flex-1 border-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-400 dark:bg-gray-700 dark:text-white"
