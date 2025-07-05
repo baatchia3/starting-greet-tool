@@ -9,17 +9,19 @@ export interface Todo {
   text: string;
   completed: boolean;
   createdAt: Date;
+  type: 'daily' | 'monthly' | 'yearly';
 }
 
 const TodoApp = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const addTodo = (text: string) => {
+  const addTodo = (text: string, type: 'daily' | 'monthly' | 'yearly') => {
     const newTodo: Todo = {
       id: Date.now().toString(),
       text: text.trim(),
       completed: false,
       createdAt: new Date(),
+      type,
     };
     setTodos(prev => [newTodo, ...prev]);
   };
