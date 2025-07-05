@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +14,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 const generateMockData = (days: number = 30) => {
   const data: Todo[] = [];
   const now = new Date();
+  const taskTypes: ('daily' | 'monthly' | 'yearly')[] = ['daily', 'monthly', 'yearly'];
   
   for (let i = 0; i < 50; i++) {
     const daysAgo = Math.floor(Math.random() * days);
@@ -24,11 +26,15 @@ const generateMockData = (days: number = 30) => {
     createdAt.setDate(now.getDate() - daysAgo);
     createdAt.setHours(hours, minutes, 0, 0);
     
+    // Randomly select a task type
+    const randomType = taskTypes[Math.floor(Math.random() * taskTypes.length)];
+    
     data.push({
       id: `task-${i}`,
       text: `Task ${i}`,
       completed: Math.random() > 0.4,
-      createdAt
+      createdAt,
+      type: randomType
     });
   }
   
